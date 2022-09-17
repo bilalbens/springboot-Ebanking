@@ -23,6 +23,6 @@ public class BankAccount {
     private AccountStatus status;
     @ManyToOne
     private Customer customer;
-    @OneToMany(mappedBy = "bankAccount")
+    @OneToMany(mappedBy = "bankAccount", fetch = FetchType.EAGER) // it's better to use LAZY to not load a lot of data in memory
     private List<AccountOperation> accountOperations;
 }
